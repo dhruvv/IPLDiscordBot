@@ -55,7 +55,7 @@ async def on_ready():
 @bot.command(name='table', help='Returns the current IPL Table from IPLT20.com')
 async def on_table_command(ctx):
     table = str(getIplTable())
-    await ctx.send(table) 
+    await ctx.send("```"+table+"```") 
 
 bot.run(token)
 

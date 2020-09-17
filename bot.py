@@ -57,7 +57,7 @@ async def on_table_command(ctx):
     table = str(getIplTable())
     await ctx.send("```"+table+"```") 
 
-@bot.commend(name='score', help='Returns the score of the current match. Data scraped from IPLT20.com')
+@bot.command(name='score', help='Returns the score of the current match. Data scraped from IPLT20.com')
 async def on_score_command(ctx):
     await ctx.send('Score command invoked')
 

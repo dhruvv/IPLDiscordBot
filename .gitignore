@@ -355,3 +355,4 @@ MigrationBackup/
 #Confidential Discord Token/Secrets 
 *.env
 testenv.py
+tabletesting.py

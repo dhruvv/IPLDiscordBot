@@ -5,6 +5,8 @@ from discord.ext import commands
 import os
 from dotenv import load_dotenv
 from tabulate import tabulate
+import requests
+import json
 
 # CONSTANTS (DISCORD TOKEN, Bot Object, important URLs)
 load_dotenv()
@@ -16,8 +18,8 @@ ipltablepage = "https://www.iplt20.com/points-table/2020"
 
 # UTILITY FUNCTIONS TO INTERACT WITH APIs - CricBuzz and IPLT20.com
 
-def get_from_url():
-    pass
+def get_from_url(url):
+    return requests.get(url).json()
 
 def getIplTable():
     ipltableData = urllib.urlopen(ipltablepage)
@@ -51,10 +53,10 @@ def getIplTable():
         posList.pop(-1)
         attrList.append(posList)
     return(tabulate(attrList, headers=tableHeadersNew, tablefmt='github'))
-
 def get_live_score():
-    pass
-
+    matches = get_from_url("https://mapps.cricbuzz.com/cbzios/match/livematches")
+    return matches
+    
 
 
 # DISCORD BOT COMMANDS FOLLOW 
@@ -70,13 +72,15 @@ async def on_table_command(ctx):
 @bot.command(name='score', help='Returns the score of the current match. Data scraped from IPLT20.com')
 async def on_score_command(ctx):
     await ctx.send('Score command invoked')
+    print(matches)
 
 @bot.command(name='nextmatch', help='Returns the next match of PARAM. Usage: %nextmatch TEAMNAME')
 async def on_nextmatch_command(ctx, teamname):
-    await ctx.send('Next match command invoked with ' + teamname + ' as param')@
+    await ctx.send('Next match command invoked with ' + teamname + ' as param')
+
 
 @bot.command(name='github', help='The GitHub repo for this bot!')
-async def github_command(ctx):
+async def github_command(   ctx):
     await ctx.send('VIsit https://github.com/dhruvv/IPLDiscordBot to see the bot!')
 
 bot.run(token)

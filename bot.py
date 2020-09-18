@@ -72,7 +72,7 @@ async def on_table_command(ctx):
 @bot.command(name='score', help='Returns the score of the current match. Data scraped from IPLT20.com')
 async def on_score_command(ctx):
     await ctx.send('Score command invoked')
-    print(get_live_score())
+    #print(get_live_score())
 
 @bot.command(name='nextmatch', help='Returns the next match of PARAM. Usage: %nextmatch TEAMNAME')
 async def on_nextmatch_command(ctx, teamname):

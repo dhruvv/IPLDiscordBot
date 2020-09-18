@@ -63,7 +63,9 @@ async def on_score_command(ctx):
 @bot.command(name='nextmatch', help='Returns the next match of PARAM. Usage: %nextmatch TEAMNAME')
 async def on_nextmatch_command(ctx, teamname):
     await ctx.send('Next match command invoked with ' + teamname + ' as param')
-
+@bot.command(name='github', help='The GitHub repo for this bot!')
+async def github_command(ctx):
+    await ctx.send('VIsit https://github.com/dhruvv/IPLDiscordBot to see the bot!')
 bot.run(token)
 
 

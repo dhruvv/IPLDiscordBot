@@ -1,6 +1,17 @@
 # IPL Discord Bot
  The server code for an IPL Discord Bot. Can respond to commands for the table, live commentary, scheduled matches of a team, etc
 
+ Current working commands
+ ```discord
+ %help 
+ %table - the current IPL table, scraped from IPLT20.com
+ ```
+ Commands referenced in code but func is not complete:
+ ```
+ %nextmatch TEAMNAME
+ %score
+ ```
+
  ## Inviting the Bot to your Discord Guild
 
  As of right now, you can't! But within a few days I hope to finish the bot and make it inviteable. 

@@ -1,3 +1,4 @@
+# IMPORTS 
 from bs4 import BeautifulSoup
 import urllib.request as urllib
 from discord.ext import commands
@@ -5,14 +6,18 @@ import os
 from dotenv import load_dotenv
 from tabulate import tabulate
 
+# CONSTANTS (DISCORD TOKEN, Bot Object, important URLs)
 load_dotenv()
-global token
 token = os.getenv('DISCORD_TOKEN')
 bot = commands.Bot(command_prefix="%")
 
     
 ipltablepage = "https://www.iplt20.com/points-table/2020"
 
+# UTILITY FUNCTIONS TO INTERACT WITH APIs - CricBuzz and IPLT20.com
+
+def get_from_url():
+    pass
 
 def getIplTable():
     ipltableData = urllib.urlopen(ipltablepage)
@@ -47,7 +52,12 @@ def getIplTable():
         attrList.append(posList)
     return(tabulate(attrList, headers=tableHeadersNew, tablefmt='github'))
 
-def 
+def get_live_score():
+    pass
+
+
+
+# DISCORD BOT COMMANDS FOLLOW 
 @bot.event
 async def on_ready():
     print(f'{bot.user} has connected to Discord! ')
@@ -60,9 +70,11 @@ async def on_table_command(ctx):
 @bot.command(name='score', help='Returns the score of the current match. Data scraped from IPLT20.com')
 async def on_score_command(ctx):
     await ctx.send('Score command invoked')
+
 @bot.command(name='nextmatch', help='Returns the next match of PARAM. Usage: %nextmatch TEAMNAME')
 async def on_nextmatch_command(ctx, teamname):
-    await ctx.send('Next match command invoked with ' + teamname + ' as param')
+    await ctx.send('Next match command invoked with ' + teamname + ' as param')@
+
 @bot.command(name='github', help='The GitHub repo for this bot!')
 async def github_command(ctx):
     await ctx.send('VIsit https://github.com/dhruvv/IPLDiscordBot to see the bot!')

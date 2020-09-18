@@ -47,7 +47,7 @@ def getIplTable():
         attrList.append(posList)
     return(tabulate(attrList, headers=tableHeadersNew, tablefmt='github'))
 
-
+def 
 @bot.event
 async def on_ready():
     print(f'{bot.user} has connected to Discord! ')
@@ -66,6 +66,7 @@ async def on_nextmatch_command(ctx, teamname):
 @bot.command(name='github', help='The GitHub repo for this bot!')
 async def github_command(ctx):
     await ctx.send('VIsit https://github.com/dhruvv/IPLDiscordBot to see the bot!')
+
 bot.run(token)
 
 

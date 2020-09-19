@@ -60,13 +60,10 @@ def get_live_score():
     matches = get_from_url("https://mapps.cricbuzz.com/cbzios/match/livematches")['matches']
     for match in matches:
         if match['series_name'] == "Indian Premier League 2020": 
-            try :
-                if match['state'] == "preview" or match['header']['status'] == "preview" or match['header']['state'] == "preview":
-                    return "No IPL Match in progress, though one is scheduled soon"
-                else:
-                    return match
-            except KeyError:
-                return "Match state not found due to API Error"
+            if match['header']['status'] == "preview" or match['header']['state'] == "preview":
+                return "No IPL Match in progress, though one is scheduled soon"
+            else:
+                return match
         else:
             return "No IPL Match found"
     

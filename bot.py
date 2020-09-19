@@ -67,9 +67,9 @@ def get_live_score():
                 else:
                     return "No IPL Match in progress, though one is scheduled soon"
             except KeyError:
-                return "Match state not found"
+                return "Match state not found due to API Error"
         else:
-            return "No IPL Match found      "
+            return "No IPL Match found"
     
 
 

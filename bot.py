@@ -18,6 +18,7 @@ ipltablepage = "https://www.iplt20.com/points-table/2020"
 
 # UTILITY FUNCTIONS TO INTERACT WITH APIs - CricBuzz and IPLT20.com
 
+
 def get_from_url(url):
     return requests.get(url).json()
 
@@ -53,9 +54,16 @@ def getIplTable():
         posList.pop(-1)
         attrList.append(posList)
     return(tabulate(attrList, headers=tableHeadersNew, tablefmt='github'))
+
+
 def get_live_score():
-    matches = get_from_url("https://mapps.cricbuzz.com/cbzios/match/livematches")
-    return matches
+    matches = get_from_url("https://mapps.cricbuzz.com/cbzios/match/livematches")['matches']
+    for match in matches:
+        if match['series_name'] == "Indian Premier League 2020" && match['state'] != "preview":
+            matchprop = match
+            return matchprop
+        else:
+            return None    
     
 
 
@@ -71,8 +79,11 @@ async def on_table_command(ctx):
 
 @bot.command(name='score', help='Returns the score of the current match. Data scraped from IPLT20.com')
 async def on_score_command(ctx):
-    await ctx.send('Score command invoked')
-    #print(get_live_score())
+    prop = get_live_score()
+    if prop is not None:
+        await ctx.send(prop)
+    else:
+        await ctx.send("No IPL Match currently in progress")
 
 @bot.command(name='nextmatch', help='Returns the next match of PARAM. Usage: %nextmatch TEAMNAME')
 async def on_nextmatch_command(ctx, teamname):

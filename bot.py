@@ -59,7 +59,7 @@ def getIplTable():
 def get_live_score():
     matches = get_from_url("https://mapps.cricbuzz.com/cbzios/match/livematches")['matches']
     for match in matches:
-        if match['series_name'] == "Indian Premier League 2020" && match['state'] != "preview":
+        if match['series_name'] == "Indian Premier League 2020" and match['state'] != "preview":
             matchprop = match
             return matchprop
         else:

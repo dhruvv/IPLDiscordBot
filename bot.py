@@ -61,11 +61,10 @@ def get_live_score():
     for match in matches:
         if match['series_name'] == "Indian Premier League 2020": 
             try :
-                if match['state'] != "preview" or match['header']['status'] != "preview":
-                    matchprop = match
-                    return matchprop
-                else:
+                if match['state'] == "preview" or match['header']['status'] == "preview" or match['header']['state'] == "preview":
                     return "No IPL Match in progress, though one is scheduled soon"
+                else:
+                    return match
             except KeyError:
                 return "Match state not found due to API Error"
         else:

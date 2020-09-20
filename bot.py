@@ -36,6 +36,7 @@ def getIplTable():
             tableHeadersNew.append(" ")
         else:
             tableHeadersNew.append(d[0])
+
     iplTableByPos.pop(0)
     attrList = []
     for pos in iplTableByPos:
@@ -58,14 +59,17 @@ def getIplTable():
 
 def get_live_score():
     matches = get_from_url("https://mapps.cricbuzz.com/cbzios/match/livematches")['matches']
+    curMatches = []
     for match in matches:
         if match['series_name'] == "Indian Premier League 2020": 
             if match['header']['status'] == "preview" or match['header']['state'] == "preview":
-                return "No IPL Match in progress, though one is scheduled soon"
+                curMatches.append(match)
             else:
-                return match
-        else:
-            return "No IPL Match found"
+                curMatches.append(match)
+    if len(curMatches) < 1 :
+        return "No IPL Match found"
+    else:
+        return curMatches
     
 
 

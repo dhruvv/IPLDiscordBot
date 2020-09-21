@@ -59,7 +59,7 @@ def csv_file_read():
                 hr = row[1].split(":")[0]
             hr = int(hr)
             mi = int(row[1].split(":")[1][0:2])
-            finalTime = (datetime.datetime(2020,mo,day,hr,mi,0).timestamp() - float(19800))
+            finalTime = datetime.datetime(2020,mo,day,hr,mi,0).timestamp()
             t1 = shorthand(row[3].lower())
             t2 = shorthand(row[4].lower())
             matches.append([finalTime,t1,t2,row[5].lower()])

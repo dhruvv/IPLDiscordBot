@@ -150,7 +150,7 @@ async def on_score_command(ctx):
 async def on_nextmatch_command(ctx, *args):
     matchObj = get_next_match(args=args)
     if matchObj is not None:
-        await ctx.send("Next match is "+ matchObj[1].upper() + " versus "+ matchObj[2].upper() + " at " + matchObj[-1].capitalize() + " "+  str(time.asctime(time.localtime(int(matchObj[0] + 19800)))))
+        await ctx.send("Next match is "+ matchObj[1].upper() + " versus "+ matchObj[2].upper() + " at " + matchObj[-1].capitalize() + " "+  str(time.asctime(time.localtime(int(matchObj[0])))))
     else:
         await ctx.send("No team with that name found. Perhaps you typed a wrong team name?")
 

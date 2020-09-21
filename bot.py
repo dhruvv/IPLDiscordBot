@@ -54,7 +54,7 @@ def getIplTable():
                     posList.append(c[0])
         posList.pop(-1)
         attrList.append(posList)
-    return(tabulate(attrList, headers=tableHeadersNew, tablefmt='github'))
+    return(tabulate(attrList, headers=tableHeadersNew, tablefmt='simple'))
 
 
 def get_live_score():
@@ -70,6 +70,7 @@ def get_live_score():
         return "No IPL Match found"
     else:
         return curMatches
+
     
 
 

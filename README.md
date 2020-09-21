@@ -5,16 +5,20 @@
  ```discord
  %help 
  %table - the current IPL table, scraped from IPLT20.com
+%nextmatch TEAMNAME
+ %score (very rudimentary)
  ```
  Commands referenced in code but func is not complete:
  ```
- %nextmatch TEAMNAME
- %score
+%commentary
+%stats TEAM/PLAYER
  ```
 
  ## Inviting the Bot to your Discord Guild
 
  As of right now, you can't! But within a few days I hope to finish the bot and make it inviteable. 
+
+ If you wish to beta-test the bot, please contact me through GitHub Issues and I will give you the OAuth2 Link. 
  
 ## Using the Bot Script on your own
 If you want to run the bot on your own server and create your own version of the IPL Bot, you need to do a few things.
@@ -30,10 +34,11 @@ beautifulsoup4
 python-dotenv
 discord.py
 tabulate
+requests
 ``` 
 You can install these using 
 ```bash
-$ pip3 install -u beautifulsoup4 python-dotenv discord.py tabulate
+$ pip3 install -u beautifulsoup4 python-dotenv discord.py tabulate requests
 ```
 Then, use Git to clone this repository, using
 ```bash

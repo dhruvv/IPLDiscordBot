@@ -10,6 +10,7 @@ import json
 import csv
 import datetime
 import time
+
 """
 DISCORD BOT for the Indian Premier League
 Copyright Dhruv Venkataraman
@@ -41,8 +42,7 @@ def shorthand(tName):
             shortName+= word[0]
         return shortName
 
-
-def map_month_to_date(mo: str):
+def map_month_to_date(mo: str):                                                    
     mo = mo.lower()
     return moDict[mo]
 

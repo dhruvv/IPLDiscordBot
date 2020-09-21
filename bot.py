@@ -53,13 +53,10 @@ def csv_file_read():
         for row in scores:
             day = int(row[0].split("-")[0])
             mo = int(list(map(map_month_to_date, [row[0].split("-")[1]]))[0])
-            if row[1].split(":")[1][2:] == "PM":
-                hr = int(row[1].split(":")[0]) + 12
-            else:
-                hr = row[1].split(":")[0]
+            hr = int(row[1].split(":")[0]) + 12
             hr = int(hr)
             mi = int(row[1].split(":")[1][0:2])
-            finalTime = datetime.datetime(2020,mo,day,hr,mi,0).timestamp()
+            finalTime = datetime.datetime(2020,mo,day,hr,mi,0).timestamp() + 19800
             t1 = shorthand(row[3].lower())
             t2 = shorthand(row[4].lower())
             matches.append([finalTime,t1,t2,row[5].lower()])
@@ -136,7 +133,7 @@ def get_next_match(args):
 async def on_ready():
     csv_file_read()
     print(f'{bot.user} has connected to Discord! ')
-    print(matches)
+    #print(matches)
 
 @bot.command(name='table', help='Returns the current IPL Table from IPLT20.com')
 async def on_table_command(ctx):

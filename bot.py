@@ -158,6 +158,11 @@ async def on_nextmatch_command(ctx, *args):
 async def github_command(ctx):
     await ctx.send('VIsit https://github.com/dhruvv/IPLDiscordBot to see the bot!')
 
+@bot.command(name='joinvc')
+async def voicejoin(ctx):
+    channel = ctx.author.voice.channel
+    await channel.connect()
+
 bot.run(token)
 
 

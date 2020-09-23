@@ -124,7 +124,7 @@ def get_next_match(args):
                 return match
     else:
         for match in matches:
-            if match[0] >= curTime and (match[1] == args[0].lower() or match[2] == args[0].lower(1)):
+            if match[0] >= curTime and (match[1] == args[0].lower() or match[2] == args[0].lower()):
                 return match
     return None      
 

